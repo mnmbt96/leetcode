@@ -12,17 +12,20 @@
  */
 var romanToInt = function (s) {
   const romanDict = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-  let result = 0;
+  let total = 0;
 
   for (let i = 0; i < s.length; i++) {
-    if (romanDict[s[i]] < romanDict[s[i + 1]]) {
+    const curr = romanDict[s[i]];
+    const prev = romanDict[s[i + 1]];
+
+    if (curr < prev) {
       // 4と9になる条件:現在の要素が次の要素より小さい場合
       // 現在の要素を全体から引く
-      result = result - romanDict[s[i]];
+      total -= curr;
     } else {
-      result = result + romanDict[s[i]];
+      total += curr;
     }
   }
-  return result;
+  return total;
 };
 // @lc code=end
