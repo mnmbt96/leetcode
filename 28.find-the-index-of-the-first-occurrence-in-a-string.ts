@@ -7,9 +7,7 @@
 
 // @lc code=start
 function strStr(haystack: string, needle: string): number {
-  let index = -1;
   // 一致する文字列のインデックスを取得する
-  index = haystack.indexOf(needle);
-  return index;
+  return haystack.indexOf(needle);
 }
 // @lc code=end
